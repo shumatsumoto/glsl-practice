@@ -13,8 +13,8 @@ async function main() {
     }
     
     // シェーダーファイルを読み込み
-    const vertexShaderSource = await loadShader('vertex.glsl');
-    const fragmentShaderSource = await loadShader('fragment.glsl');
+    const vertexShaderSource = await loadShader('glsl/vertex.glsl');
+    const fragmentShaderSource = await loadShader('glsl/fragment.glsl');
     
     // シェーダーをコンパイルする関数
     function createShader(gl, type, source) {
