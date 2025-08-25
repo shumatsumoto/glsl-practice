@@ -5,11 +5,13 @@ uniform float u_time;
 
 void main() {
     vec2 st = gl_FragCoord.xy / u_resolution.xy;
-    vec2 mousePos = u_mouse / u_resolution;
-    float distance = distance(vec2(0.5), st);
 
-    float color = fract(distance * 10.0 - u_time) / distance / 40.0;
-    vec3 color2 = vec3(.1, .5, 1.0);
+    float frequency = 5.0;
+    
+    float checkerX = floor(st.x * frequency);
+    float checkerY = floor(st.y * frequency + u_time);
 
-    gl_FragColor = vec4(color2 * vec3(color), 1.0);
+    float checker = mod(checkerX + checkerY, 2.0);
+
+    gl_FragColor = vec4(vec3(checker), 1.0);
 }
